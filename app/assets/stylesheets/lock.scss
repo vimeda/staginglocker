@@ -1,0 +1,51 @@
+// Place all the styles related to the Lock controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body.free {
+	background-color: #9DC434;
+
+	.btn {
+		background-color: #F2153B;
+		color: white;
+	}
+}
+
+body.locked {
+	background-color: #F2153B;
+
+	.btn {
+		background-color: #9DC434;
+		color: white;
+	}
+}
+
+.lock-main {
+	text-align: center;
+	margin: 0 auto;
+	margin-top: 15%;
+	color: white;
+
+	input[type=text] {
+		width: 50%;
+		margin: 0 auto;
+	}
+
+	label {
+		display: none;
+	}
+
+	h1 {
+		margin: 32px 0;
+		display: block;
+	}
+
+	.alert p.name {
+		font-style: italic;
+	}
+
+	.alert p.note {
+		text-align: center;
+		font-size: 2em;
+	}
+}

@@ -1,0 +1,38 @@
+<% content_for :body_class do %>
+	<% if @lock.new_record? %>free
+	<% else %>locked
+	<% end %>
+<% end %>
+
+<div class="container lock-main text-vertical-center">
+	<h1>
+		Staging is
+		<% unless @lock.new_record? %>
+			locked
+		<% else %>
+			free
+		<% end %>
+	</h1>
+
+	<% unless @lock.new_record? %>
+	<div class="alert alert-warning" role="alert">
+		<p class="text-left note"><%= @lock.note %></p>
+		<p class="text-right name"><%= @lock.name %></p>
+	</div>
+	<% end %>
+
+	<% if @lock.new_record? %>
+		<%= simple_form_for @lock do |f| %>
+		  <%= f.input :name, placeholder: 'Name' %>
+		  <%= f.input :note, placeholder: 'Why it is locked?' %>
+		  <%= f.button :submit, class: 'btn-lg' %>
+		<% end %>
+	<% else %>	
+	<%= link_to 'Unlock', lock_path(@lock),
+	            data: {:confirm => 'Are you sure?'}, 
+	            class: 'btn btn-lg',
+	            :method => :delete 
+	%>	
+<% end %>
+
+</div>
